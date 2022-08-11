@@ -6,15 +6,15 @@ import {
   IconMapPins,
 } from "@tabler/icons";
 
-const usercarddetail = (prop) => {
-  <div className="text-center">
-    <p>
-      <IconMailForward /> {prop.email}
-    </p>
-    <p>
-      <IconMapPins /> {prop.address}
-    </p>
-  </div>;
-};
-
-export default usercarddetail;
+export default function Usercarddetail(props) {
+  return (
+    <div className="text-center">
+      <p>
+        <IconMailForward /> {props.email}
+      </p>
+      <p>
+        <IconMapPins /> {props.address}
+      </p>
+    </div>
+  );
+}

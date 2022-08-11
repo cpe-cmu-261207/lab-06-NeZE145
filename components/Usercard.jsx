@@ -5,9 +5,8 @@ import {
   IconMailForward,
   IconMapPins,
 } from "@tabler/icons";
-import usercarddetail from "./Usercarddetail";
-
-const Usercard = (prop) => {
+import Usercarddetail from "./Usercarddetail";
+const Usercard = (props) => {
   const [click, setclick] = useState(false);
   return (
     <div
@@ -17,16 +16,13 @@ const Usercard = (prop) => {
       }}
     >
       <div className="d-flex align-items-center p-3">
-        <img src={prop.imgUrl} width="90px" class="rounded-circle me-4" />
+        <img src={props.imgUrl} width="90px" class="rounded-circle me-4" />
 
-        <span className="text-center display-6 me-auto">{prop.name}</span>
-        <IconChevronDown />
+        <span className="text-center display-6 me-auto">{props.name}</span>
+        {!click && <IconChevronDown />}
+        {click && <IconChevronUp />}
       </div>
-      {click ? (
-        <usercarddetail email={prop.email} address={prop.address} />
-      ) : (
-        ""
-      )}
+      {click && <Usercarddetail email={props.email} address={props.address} />}
     </div>
   );
 };
